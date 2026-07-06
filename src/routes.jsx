@@ -8,6 +8,9 @@
 
 // TODO (Part 1): bring in what you need from react-router to define
 //   routes. Docs: https://reactrouter.com/start/declarative/routing
+import { BrowserRouter, Routes, Route } from "react-router"
+import Home from "./pages/Home"
+
 // TODO (Part 2): bring in the Navbar component
 // TODO (Part 1): bring in the Home page
 // TODO (Part 3): bring in the QuoteDetail page
@@ -16,6 +19,8 @@
 
 function AppRoutes() {
   return (
+    <Routes>
+      <Route path="/" element={<Home />}/>
     <>
       {/* TODO (Part 2): render the navbar here, above your routes,
           so it shows no matter which page is active */}
@@ -39,6 +44,7 @@ function AppRoutes() {
         Docs: https://reactrouter.com/start/declarative/routing
       */}
     </>
+    </Routes>
   )
 }
 

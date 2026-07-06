@@ -8,6 +8,8 @@
 // TODO (Part 1): bring in the component for client-side navigation
 //   links. Docs: https://reactrouter.com/start/declarative/navigating#link
 // TODO (Part 1): bring in the quotes data
+import { data, Link, useNavigate } from "react-router"
+import quotesData from "../data/quotes"
 
 function Home() {
   return (
@@ -16,6 +18,18 @@ function Home() {
 
       <section className="card">
         <h2>All Quotes</h2>
+
+        <ul>
+          {quotesData.map((quote) => { {console.log(quote)}
+          return (
+            <li className="quote-item">
+              <p className="quote-text"> {quote.text} </p>
+              <p className="quote-author"> {quote.author} </p>
+              <Link to="/quotes/:quoteId"> Some Link </Link>
+            </li>
+          )
+        })}
+        </ul>
 
         {/*
           TODO (Part 1):
