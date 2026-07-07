@@ -9,6 +9,7 @@
 // ============================================================
 
 import { useState } from 'react'
+import { useNavigate } from 'react-router'
 
 // TODO (Part 4): bring in the hook that lets you navigate from code,
 //   not just from a link click. Docs:
@@ -19,11 +20,13 @@ function AddQuote() {
   const [author, setAuthor] = useState('')
 
   // TODO (Part 4): get the navigate function from that hook
+  let navigate = useNavigate()
 
   function handleSubmit(e) {
     e.preventDefault()
 
     // TODO (Part 4): send the user back to the home page after submit
+    navigate("/")
   }
 
   return (

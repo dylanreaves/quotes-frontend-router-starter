@@ -10,6 +10,10 @@
 //   routes. Docs: https://reactrouter.com/start/declarative/routing
 import { BrowserRouter, Routes, Route } from "react-router"
 import Home from "./pages/Home"
+import Navbar from "./components/Navbar"
+import QuoteDetail from "./pages/QuoteDetail"
+import AddQuote from "./pages/AddQuote"
+import NotFound from "./pages/NotFound"
 
 // TODO (Part 2): bring in the Navbar component
 // TODO (Part 1): bring in the Home page
@@ -17,34 +21,42 @@ import Home from "./pages/Home"
 // TODO (Part 4): bring in the AddQuote page
 // TODO (Part 5): bring in the NotFound page
 
+<>
+  {/* TODO (Part 2): render the navbar here, above your routes,
+      so it shows no matter which page is active */}
+
+  {/*
+    TODO: define your routes below.
+
+    Part 1 — Home renders at the root path "/". This is an
+      "index" route: it renders at the parent's own path
+      instead of a sub-path.
+
+    Part 3 — QuoteDetail renders at a dynamic path that captures
+      an id from the URL (a "path parameter").
+
+    Part 4 — AddQuote renders at a fixed path.
+
+    Part 5 — NotFound catches anything that didn't match any
+      route above. It must come LAST, or it swallows every
+      route below it.
+
+    Docs: https://reactrouter.com/start/declarative/routing
+  */}
+</>
+
 function AppRoutes() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />}/>
     <>
-      {/* TODO (Part 2): render the navbar here, above your routes,
-          so it shows no matter which page is active */}
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home/>}/>
+        <Route path="/quotes/:id" element={<QuoteDetail/>}/>
+        <Route path="/quotes/new" element={<AddQuote/>}/>
 
-      {/*
-        TODO: define your routes below.
-
-        Part 1 — Home renders at the root path "/". This is an
-          "index" route: it renders at the parent's own path
-          instead of a sub-path.
-
-        Part 3 — QuoteDetail renders at a dynamic path that captures
-          an id from the URL (a "path parameter").
-
-        Part 4 — AddQuote renders at a fixed path.
-
-        Part 5 — NotFound catches anything that didn't match any
-          route above. It must come LAST, or it swallows every
-          route below it.
-
-        Docs: https://reactrouter.com/start/declarative/routing
-      */}
+        <Route path="/*" element={<NotFound/>}/>
+      </Routes>
     </>
-    </Routes>
   )
 }
 

@@ -8,10 +8,23 @@
 // TODO (Part 2): bring in the nav-link component that knows whether
 //   it's the active route. Docs:
 //   https://reactrouter.com/start/declarative/navigating#navlink
+import { NavLink } from "react-router"
 
-function Navbar() {
+function Navbar(props) {
+  console.log(props)
+
   return (
+    <>
     <nav className="navbar">
+
+      <NavLink to="/" className={({ isActive }) => isActive ? "active" : ""}> 
+        Home 
+      </NavLink>
+
+      <NavLink to="/quotes/new" className={({ isActive }) => isActive ? "active" : ""}>
+        Add Quote  
+      </NavLink>
+
       {/* TODO (Part 2): a link to the home page */}
       {/* TODO (Part 2): a link to the add-quote page */}
       {/*
@@ -23,6 +36,8 @@ function Navbar() {
         or color).
       */}
     </nav>
+    <div> {props.children} </div>
+    </>
   )
 }
 
