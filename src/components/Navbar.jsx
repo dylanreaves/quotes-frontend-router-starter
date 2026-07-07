@@ -11,7 +11,6 @@
 import { NavLink } from "react-router"
 
 function Navbar(props) {
-  console.log(props)
 
   return (
     <>
